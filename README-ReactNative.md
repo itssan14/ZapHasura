@@ -60,3 +60,4 @@ let body = {  "type" : "insert",  "args" : {      "table"     : "user
 - The spreadsheet gets updated with the details of the new registered users. Uses a Webhook(catch hook)
 - Send a POST request to the webhook URL to trigger the webhook
 ![sheet](https://github.com/itssan14/ZapHasura/blob/master/readme-assets/user_details_spreadsheet_native.png)
+![mail](https://github.com/itssan14/ZapHasura/blob/master/readme-assets/mail.png)
