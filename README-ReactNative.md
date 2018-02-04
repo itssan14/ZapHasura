@@ -13,6 +13,7 @@ In order to get this app running, you must have the following:1. [hasura CLI too
 2. Expo client (XDE). Download from https://expo.io/tools
 3. NodeJS
 (For more such apps, check out https://hasura.io/hub)
+
 ### Pushing the project to the cluster
 - To get cluster information, run `hasura cluster status`. Info will be of the following form.
 ```INFO Reading cluster status...INFO Status:Cluster Name:       athlete80Cluster Alias:      hasuraKube Context:       athlete80Platform Version:   v0.15.3Cluster State:      Synced```
@@ -30,11 +31,15 @@ In order to get this app running, you must have the following:1. [hasura CLI too
 ```
 create table users(hasura_id integer,name text,age integer,profession text,PRIMARY KEY (hasura_id));
 ```
+and to insert data into users table 
 `https://data.<cluster-name>.hasura-app.io/v1/query/`
-```:json{    "type":"select",    "args":{        "table":"article",        "columns":[            "title",            "id"        ],        "where":{            "author_id":4        }    }}```
-- This app uses the above query and renders the list of articles as shown below.
-![List of articles](https://github.com/hasura/hello-react-native/raw/master/readme-assets/users_table.png)
-- You can also exploit relationships. In the pre-populated schema, the author table has a relationship to the article table. The app uses the following query to render the article page.```:json{    "type":"select",    "args":{        "table":"article",        "columns":[            "title",            "content"            "id",            {                "name": "author",                "columns":[                    "name",                    "id"                ]            }        ],        "where":{            "author_id":4        }    }}```![List of articles](https://github.com/hasura/hello-react-native/raw/master/readme-assets/article.png)
+```
+let requestOptions = {  "method": "POST",  "headers": {    "Content-Type":"application/json"  }};
+let body = {  "type" : "insert",  "args" : {      "table"     : "users",      "objects"   : [        {
+                      "age" :age,           "hasura_id":id,           "FirstName":n,           "Profession":pf                  }             ] }};
+```
+- This app uses the above query and inserts the details of users as shown below.
+![table](https://github.com/itssan14/ZapHasura/blob/master/readme-assets/users_table.png)
 - The Hasura API Console is a UI which makes managing the backend easier. To access your api-console, run
 ```$ hasura api-console```
 - You can build queries easily using the query builder on API-Console.
