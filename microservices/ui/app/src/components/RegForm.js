@@ -6,6 +6,7 @@ import MenuItem from "material-ui/Menu/MenuItem";
 import Typography from "material-ui/Typography";
 import AddIcon from "material-ui-icons/Add";
 import Popover from "material-ui/Popover";
+var fetch = require("fetch");
 
 export default class RegFrom extends React.Component {
   state = {
