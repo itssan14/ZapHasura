@@ -1,0 +1,7 @@
+- alias: hasura
+  config:
+    configmap: controller-conf
+    namespace: chowder46-hasura
+  data: null
+  kubeContext: chowder46
+  name: chowder46
