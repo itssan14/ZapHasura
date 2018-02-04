@@ -1,7 +1,15 @@
-[**React**](https://reactjs.org) is a JavaScript library to create interactive user interfaces. The core library is focussed on the view layer. It is declarative and component based. This quickstart uses [**create-react-app**](https://github.com/facebook/create-react-app) to scaffold a react app with no build configuration.
+# T34NE1 | Zapier - New User Notification
 
-## What does this come with?
+We have implemented a project wherein it triggers a Zapier Zap. The aim is to create a user registration form and to create a zap for every new registration. We have created a Zap between Webhook + Google Spreadsheet + Gmail. This repository consists of both mobile app and web app built using Hasura.
 
+## Frameworks Used
+- Frontend
+  - React-Native (for mobile app)
+  - ReactJs (for web app)
+- Backend
+  - NodeJS-Express
+  
+## Features
 * React.js Hello World Project
   * Automatic reloading and bundling
   * All *create-react-app* feature
@@ -99,7 +107,4 @@ This quickstart comes with one such custom service written in `nodejs` using the
 
 * [Adding Microservice](https://docs.hasura.io/0.15/manual/custom-microservices/index.html)
 
-### Add data APIs
-
-Hasura comes with set of Data APIs to access the Postgres database which comes bundled with every Hasura cluster.
-Detailed docs of data APIs can be found [here](https://docs.hasura.io/0.15/manual/data/index.html).
+## Support
