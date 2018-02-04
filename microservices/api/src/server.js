@@ -35,7 +35,7 @@ app.post('/hook', (req,res) => {
 		        "name": req.body.name,
 		        "email": req.body.email,
 		        "address": req.body.address,
-		        "bday": req.body.date,
+		        "bday": req.body.bday,
 		        "age": req.body.age,
 		        "gender": req.body.gender
 		};
