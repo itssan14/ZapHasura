@@ -44,10 +44,25 @@ If changes have been done to the dependencies, `git commit`, and perform `git pu
 * If you have an existing react app which you would like to deploy, replace the code inside `/microservices/ui/src/` according to your app.* You may need to modify the Dockerfile if your `package.json` or the build directory location has changed, but in most cases, it won't be required.* Commit, and run `git push hasura master` to deploy your app.
 ## Adding backend features
 Hasura comes with BaaS APIs to make it easy to add backend features to your apps.
-### Add instant authentication via Hasura’s web UI kit
-Every project comes with an Authentication kit, you can restrict the access to your app to specific user roles.It comes with a UI for Signup and Login pages out of the box, which takes care of user registration and signing in.
-![Auth UI](https://docs.hasura.io/0.15/_images/uikit-dark.png)
-Follow the [Authorization docs](https://docs.hasura.io/0.15/manual/users/uikit.html) to add Authentication kit to your app.
+### Add a Auth API
+This project uses Hasura Auth API to authenticate the new users. 
+```
+  var url1 = "https://auth.chowder46.hasura-app.io/v1/signup";
+  var requestOptions = {      "method": "POST",      "headers":
+    {          
+        "Content-Type": "application/json"
+    }
+  };
+  var body = {      
+        "provider": "username",
+        "data": {          
+            "username": req.body.name,
+            "password": req.body.pass
+        }
+  };
+  requestOptions.body = JSON.stringify(body);
+  fetchAction(url1, requestOptions)  .
+```
 ### Add a custom API
 Hasura project is composed of a set of microservices. These include certain Hasura microservices like, postgres, nginx, data API, auth API and more but can also include your own microservices.This quickstart comes with one such custom service written in `nodejs` using the `express` framework. Check it out in action at `https://api.cluster-name.hasura-app.io` . Currently, it just returns a "Hello-React" at that endpoint.
 * [Adding Microservice](https://docs.hasura.io/0.15/manual/custom-microservices/index.html)
