@@ -4,6 +4,7 @@ import TextField from "material-ui/TextField";
 import Paper from "material-ui/Paper";
 import Button from "material-ui/Button";
 import Navbar from "./Navbar";
+import Fetch from "isomorphic-fetch";
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class Login extends React.Component {
     let uname = event.target.uname.value;
     let pwd = event.target.pwd.value;
     if (uname !== "" && pwd !== "") {
-      fetch('/cred', {
+      Fetch('/cred', {
         method: "POST",
         headers: "application/JSON",
         body: JSON.stringify({

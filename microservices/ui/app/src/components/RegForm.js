@@ -6,7 +6,7 @@ import MenuItem from "material-ui/Menu/MenuItem";
 import Typography from "material-ui/Typography";
 import AddIcon from "material-ui-icons/Add";
 import Popover from "material-ui/Popover";
-var fetch = require("fetch");
+import Fetch from "isomorphic-fetch";
 
 export default class RegFrom extends React.Component {
   state = {
@@ -23,13 +23,13 @@ export default class RegFrom extends React.Component {
      * If the required fields are filled then compare the password and conform password
      * If they match send the info via post method  
      */
-    if( event.target.name.value !== "" && event.target.date.value !== "" && event.target.age.value !== "" && event.target.gender.value !== "") {
-      let url = "https://data.chowder46.hasura-app.io/v1/query";
-      let requestOptions = { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer bbf28a5bf5e157715bcf3184b26ecd414917c80e41cbbef9" } };
-      let body = { type: "insert", args: { table: "user", objects: [{ name: event.target.name.value, email: event.target.email.value, address: event.target.address.value, age: event.target.age.value, gender: event.target.gender.value, bday: event.target.date.value }] } };
+    if( event.target.name.value !== "" && event.target.email.value !== "" && event.target.date.value !== "" && event.target.age.value !== "" && event.target.gender.value !== "") {
+      var url = "https://data.chowder46.hasura-app.io/v1/query";
+      var requestOptions = { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer bbf28a5bf5e157715bcf3184b26ecd414917c80e41cbbef9" } };
+      let body = { type: "insert", args: { table: "user", objects: [{ name: event.target.name.value, address: event.target.address.value, bday: event.target.date.value, age: event.target.age.value, gender: event.target.gender.value, email: event.target.email.value,  }] } };
       requestOptions.body = JSON.stringify(body);
       // AJAX REQUEST TO MICROSERVICE TO INSERT DATA
-      fetch(url, requestOptions)
+      Fetch(url, requestOptions)
         .then(function(response) {
           return response.json();
         })

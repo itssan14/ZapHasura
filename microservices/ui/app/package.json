@@ -5,6 +5,7 @@
   "dependencies": {
     "dns": "^0.2.2",
     "fetch": "^1.1.0",
+    "isomorphic-fetch": "^2.2.1",
     "material-ui": "^1.0.0-beta.30",
     "material-ui-icons": "^1.0.0-beta.17",
     "normalize-css": "^2.3.1",
