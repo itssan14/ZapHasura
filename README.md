@@ -16,7 +16,7 @@ We have implemented a project wherein it triggers a Zapier Zap. The aim is to cr
 
 ## Procedure followed
 1. **Created Zapier Zap**
-  - Chose webhook as the trigger app and actions apps were google spreadsheets and gmail
+  - Chose webhook(catch hook) as the trigger app and actions apps were google spreadsheets and gmail
   - Find the documentation [here](https://zapier.com/help/zap-creation/#creating-a-zap)
  
  ![zap](https://github.com/itssan14/ZapHasura/blob/master/readme-assets/Zaps.png)
