@@ -56,3 +56,7 @@ let body = {  "type" : "insert",  "args" : {      "table"     : "user
 ## How to use a custom API/server?
 - Sometimes you might need to add new microservices/APIs as per your requirements. In such cases, you can deploy your microservices with Hasura using git push or docker.- This quickstart comes with one such custom microservice written in nodejs using the express framework. Check it out in action at `https://api.<cluster-name>.hasura-app.io`. Currently, it just returns a "Hello-React" at that endpoint.- This microservice is in the microservices folder of the project directory. You can add your custom microservice there.- To generate your own custom microservice, run
 ```$ hasura microservice generate --help```
+## Zapier Zap
+- The spreadsheet gets updated with the details of the new registered users. Uses a Webhook(catch hook)
+- Send a POST request to the webhook URL to trigger the webhook
+![sheet](https://github.com/itssan14/ZapHasura/blob/master/readme-assets/user_details_spreadsheet_native.png)
