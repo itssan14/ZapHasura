@@ -1,9 +1,12 @@
-# Hello React Native
+# React Native - Zapier App
+An app that integrates Zapier zap to capture the details of the registered user in google spreadsheets and notifies the same to user via gmail.
+
 ## What does this come with?
 This is a fully working react-native app with a [Hasura](https://hasura.io) backend. You can clone it and modify as per your requirements. It has basic BaaS features implemented. Also, it uses [NativeBase](https://nativebase.io) for better UI.
-- When you clone this quickstart project, there are two tables (article and author) in your database populated with some data.
-```:bashNote: This is just to get you familiar with the system. You can delete these tables whenever you like.```
-- There is a login screen in this app where the authentication is managed by the Hasura Auth APIs.- Then we make data API calls to get the list of articles and their authors.- The functions that make these calls are in the `react-native/src/hasuraApi.js` file. Modify it as you like and the changes will reflect in the app.
+- When you clone this project, there will be a **users** table in your postgres database of Hasura, in which the captured users details will be stored.
+- There is a login screen in this app where the authentication is managed by the Hasura Auth APIs.- Then we make data API calls to psush the details of the users. When you click on submit, the Zap will be triggered and thus the captured user details will be stored in the google spreadsheets and accordingly a notification mail will be sent via gmail.
+- The functions that make these calls are in the `react-native/src/hasuraApi.js` file. Modify it as you like and the changes will reflect in the app.
+
 ## How to get it running?
 ### Reqirements
 In order to get this app running, you must have the following:1. [hasura CLI tool](https://docs.hasura.io/0.15/manual/install-hasura-cli.html) (hasura).
@@ -23,10 +26,14 @@ In order to get this app running, you must have the following:1. [hasura CLI too
 ```Note: You can open the app with any of your desired react-native simulators. We prefer Expo because of its simple onboarding for beginners.```
 (*Shoutout to [NativeBase](https://nativebase.io) for their excellent UI components.*)
 ## How to include a database?
-- Hasura provides instant data APIs over Postgres to make powerful data queries. For example, to select "id" and "title" of all rows from the article table, make this query to `https://data.<cluster-name>.hasura-app.io/v1/query/`
+- Hasura provides instant data APIs over Postgres to make powerful data queries. For example, to create the users table
+```
+create table users(hasura_id integer,name text,age integer,profession text,PRIMARY KEY (hasura_id));
+```
+`https://data.<cluster-name>.hasura-app.io/v1/query/`
 ```:json{    "type":"select",    "args":{        "table":"article",        "columns":[            "title",            "id"        ],        "where":{            "author_id":4        }    }}```
 - This app uses the above query and renders the list of articles as shown below.
-![List of articles](https://github.com/hasura/hello-react-native/raw/master/readme-assets/list.png)
+![List of articles](https://github.com/hasura/hello-react-native/raw/master/readme-assets/users_table.png)
 - You can also exploit relationships. In the pre-populated schema, the author table has a relationship to the article table. The app uses the following query to render the article page.```:json{    "type":"select",    "args":{        "table":"article",        "columns":[            "title",            "content"            "id",            {                "name": "author",                "columns":[                    "name",                    "id"                ]            }        ],        "where":{            "author_id":4        }    }}```![List of articles](https://github.com/hasura/hello-react-native/raw/master/readme-assets/article.png)
 - The Hasura API Console is a UI which makes managing the backend easier. To access your api-console, run
 ```$ hasura api-console```
