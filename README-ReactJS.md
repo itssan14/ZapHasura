@@ -91,5 +91,27 @@ Hasura comes with set of Data APIs to access the Postgres database which comes b
 ## Zapier Zap
 - The spreadsheet gets updated with the details of the new registered users. Uses a Webhook(catch hook)
 - Send a POST request to the webhook URL to trigger the webhook
+```
+  var urljs = "https://hooks.zapier.com/hooks/catch/2931424/ztu8sp/";
+  var requestOptions = {
+      "method": "POST",
+      "headers": {
+          "Content-Type": "application/json"
+       }
+  };
+  var body = {
+          "name": req.body.name,
+          "email": req.body.email,
+          "address": req.body.address,
+          "bday": req.body.bday,
+          "age": req.body.age,
+          "gender": req.body.gender
+  };
+  requestOptions.body = JSON.stringify(body);
+  fetchAction(urljs, requestOptions)
+  .then(function(response) {
+  return response.json();
+  })
+```
 ![sheet](https://github.com/itssan14/ZapHasura/blob/master/readme-assets/user_info_spreadsheet.png)
 ![mail](https://github.com/itssan14/ZapHasura/blob/master/readme-assets/mail.png)
