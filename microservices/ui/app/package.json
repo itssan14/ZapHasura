@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.1",
     "dns": "^0.2.2",
     "fetch": "^1.1.0",
     "isomorphic-fetch": "^2.2.1",

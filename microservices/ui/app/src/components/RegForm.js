@@ -7,6 +7,7 @@ import Typography from "material-ui/Typography";
 import AddIcon from "material-ui-icons/Add";
 import Popover from "material-ui/Popover";
 import Fetch from "isomorphic-fetch";
+import axios from "axios";
 
 export default class RegFrom extends React.Component {
   state = {
@@ -16,6 +17,47 @@ export default class RegFrom extends React.Component {
     gender: ""
   };
 
+  dbStore = event => {
+    var url = "https://data.chowder46.hasura-app.io/v1/query";
+    var requestOptions = { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer bbf28a5bf5e157715bcf3184b26ecd414917c80e41cbbef9" } };
+    let body = { type: "insert", args: { table: "user", objects: [{ name: event.target.name.value, address: event.target.address.value, bday: event.target.date.value, age: event.target.age.value, gender: event.target.gender.value, email: event.target.email.value }] } };
+    requestOptions.body = JSON.stringify(body);
+    // AJAX REQUEST TO MICROSERVICE TO INSERT DATA
+    Fetch(url, requestOptions)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(result) {
+        console.log(result);
+        this.setState({ open: true });
+      })
+      .catch(function(error) {
+        console.log("Request Failed:" + error);
+      });
+  }
+
+  webHook = event => {
+    axios
+      .post("https://api.chowder46.hasura-app.io/hook", {
+        name: event.target.name.value,
+        address: event.target.address.value,
+        bday: event.target.date.value,
+        age: event.target.age.value,
+        gender: event.target.gender.value,
+        email: event.target.email.value
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(result) {
+        console.log(result);
+        this.setState({ open: true });
+      })
+      .catch(function(error) {
+        console.log("Request Failed:" + error);
+      });
+  }
+
   handleSubmit = event => {
     event.preventDefault();
     /**
@@ -24,22 +66,13 @@ export default class RegFrom extends React.Component {
      * If they match send the info via post method  
      */
     if( event.target.name.value !== "" && event.target.email.value !== "" && event.target.date.value !== "" && event.target.age.value !== "" && event.target.gender.value !== "") {
-      var url = "https://data.chowder46.hasura-app.io/v1/query";
-      var requestOptions = { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer bbf28a5bf5e157715bcf3184b26ecd414917c80e41cbbef9" } };
-      let body = { type: "insert", args: { table: "user", objects: [{ name: event.target.name.value, address: event.target.address.value, bday: event.target.date.value, age: event.target.age.value, gender: event.target.gender.value, email: event.target.email.value,  }] } };
-      requestOptions.body = JSON.stringify(body);
-      // AJAX REQUEST TO MICROSERVICE TO INSERT DATA
-      Fetch(url, requestOptions)
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(result) {
-          console.log(result);
-          this.setState({ open: true });
-        })
-        .catch(function(error) {
-          console.log("Request Failed:" + error);
-        });
+      /**
+       * Store the data into Hasura database
+       * URL : https://data.chowder46.hasura-app.io/v1/query
+       */
+      this.dbStore(event);
+      // Pass data to backend to store in the respective sheets.
+      this.webHook(event);
     } else {
       this.setState({ errOpen: true});
     }
