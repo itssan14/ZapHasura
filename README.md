@@ -30,7 +30,9 @@ We have implemented a project wherein it triggers a Zapier Zap. The aim is to cr
 
 4. **Integrated frontend with backend**
   - Collaborated on a common Hasura cluster *chowder46*
-  - Tested the zap and performed integration testing.
+  - Tested the zap and performed integration testing.
+
+![mail](https://github.com/itssan14/ZapHasura/blob/master/readme-assets/mail.png)
 
 ## Organization of this Repository
   - README-ReactNative.md : Describes implemention of the mobile app 
