@@ -22,9 +22,17 @@ export default class Login extends React.Component {
     let uname = event.target.uname.value;
     let pwd = event.target.pwd.value;
     if (uname !== "" && pwd !== "") {
-      axios.post("/login", { uname: uname, password: pwd })
-      .then(res => { window.location = "/form" })
-      .catch(err => { console.log(`${err}`);});
+      axios
+        .post("https://api.chowder46.hasura-app.io/login", {
+          uname: uname,
+          password: pwd
+        })
+        .then(res => {
+          window.location = "/form";
+        })
+        .catch(err => {
+          console.log(`${err}`);
+        });
     } else {
       this.setState({ error: true});
     }

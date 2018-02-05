@@ -26,13 +26,16 @@ export default class Register extends React.Component {
     if (uname !== "" && pwd !== "" && cpwd !== "") {
       if(pwd === cpwd) {
         axios
-          .post("/register", { uname: uname, password: pwd })
+          .post("https://api.chowder46.hasura-app.io/register", {
+            uname: uname,
+            password: pwd
+          })
           .then(res => {
             console.log(`${res}`);
-            this.setState({ success: true});
+            this.setState({ success: true });
           })
           .catch(err => {
-            console.log(`${err}`);  
+            console.log(`${err}`);
           });
       }
     } else {
