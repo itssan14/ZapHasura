@@ -57,6 +57,83 @@ app.post('/hook', (req,res) => {
 
 });
 
+app.post('/register', (req,res) => {
+
+		var url = "https://auth.chowder46.hasura-app.io/v1/signup";
+
+		var requestOptions = {
+		    "method": "POST",
+		    "headers": {
+		        "Content-Type": "application/json"
+		    }
+		};
+
+		var body = {
+		    "provider": "username",
+		    "data": {
+		        "username": req.body.uname,
+		        "password": req.body.password
+		    }
+		};
+
+		requestOptions.body = JSON.stringify(body);
+
+		fetchAction(url, requestOptions)
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(result) {
+			res.send(result);
+			console.log(JSON.stringify(result));
+		})
+		.catch(function(error) {
+			console.log('Request Failed:' + error);
+		});
+
+
+});
+
+app.post('/login', (req,res) => {
+
+		var url = "https://auth.chowder46.hasura-app.io/v1/login";
+
+		var requestOptions = {
+		    "method": "POST",
+		    "headers": {
+		        "Content-Type": "application/json"
+		    }
+		};
+
+		var body = {
+		    "provider": "username",
+		    "data": {
+		        "username": req.body.uname,
+		        "password": req.body.password		    }
+		};
+
+		requestOptions.body = JSON.stringify(body);
+
+		fetchAction(url, requestOptions)
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(result) {
+			res.send(result);
+			console.log(JSON.stringify(result));
+		})
+		.catch(function(error) {
+			console.log('Request Failed:' + error);
+		});
+
+
+});
+
+
+
+
+
+
+
 app.post('/signup', (req,res) => {
 
 		var url1 = "https://auth.chowder46.hasura-app.io/v1/signup";
