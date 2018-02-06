@@ -84,6 +84,13 @@ app.post('/register', (req,res) => {
 		})
 		.then(function(result) {
 			res.send(result);
+			/*
+			if(result.hasura_id){
+				res.send(result.hasura_id);	
+			}
+			else
+			res.send(result.message);
+			*/
 			console.log(JSON.stringify(result));
 		})
 		.catch(function(error) {
@@ -119,6 +126,13 @@ app.post('/login', (req,res) => {
 		})
 		.then(function(result) {
 			res.send(result);
+			/*
+			if(result.hasura_id){
+				res.send(result.hasura_id);	
+			}
+			else
+			res.send(result.message);
+			*/
 			console.log(JSON.stringify(result));
 		})
 		.catch(function(error) {
