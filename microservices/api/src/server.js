@@ -83,8 +83,11 @@ app.post('/register', (req,res) => {
 			return response.json();
 		})
 		.then(function(result) {
-			res.send(result);
+			if(result.auth_token){
+				res.send(result);
+			}
 			console.log(JSON.stringify(result));
+			}
 		})
 		.catch(function(error) {
 			console.log('Request Failed:' + error);
