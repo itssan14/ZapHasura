@@ -6,15 +6,11 @@ import "normalize-css";
 // Components
 import NotFound from "./components/NotFound";
 import App from "./App";
-import Login from "./components/LoginPage";
-import Register from "./components/Register"
 
 const Router = () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={Login} exact={true} />
-      <Route path="/form" component={App} />
-      <Route path="/register" component={Register}/>
+      <Route path="/" component={App} exact={true} />
       <Route component={NotFound} />
     </Switch>
   </BrowserRouter>
