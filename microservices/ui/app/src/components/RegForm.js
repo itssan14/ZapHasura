@@ -18,8 +18,8 @@ export default class RegFrom extends React.Component {
 	}
 
 	dbStore = event => {
-		var url = 'https://data.chowder46.hasura-app.io/v1/query'
-		var requestOptions = {
+		const url = 'https://data.chowder46.hasura-app.io/v1/query'
+		let requestOptions = {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
