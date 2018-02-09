@@ -236,7 +236,7 @@ export default class RegFrom extends React.Component {
               <Grid item xs={3} style={{ paddingLeft: "7rem" }}>
                 <Button
                   type="submit"
-                  fab
+                  variant="fab"
                   color="primary"
                   onSubmit={this.handleSubmit}
                 >
