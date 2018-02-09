@@ -67,6 +67,7 @@
 #     /recommed:
 #       upstreamService:
 #         name: recommend
+
 #         namespace: {{ cluster.metadata.namespaces.user }}
 #       upstreamServicePath: /
 #       upstreamServicePort: 80
@@ -172,6 +173,9 @@ ui:
       namespace: '{{ cluster.metadata.namespaces.user }}'
     upstreamServicePath: /
     upstreamServicePort: 80
+    authorizationPolicy:
+      restrictToRoles: ["user"]
+      noSessionRedirectUrl: https://auth.{{ cluster.name }}.hasura-app.io/ui/
 api:
   /:
     corsPolicy: null
