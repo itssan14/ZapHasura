@@ -18,10 +18,10 @@ defaultProviders:
     enabled: "true"
     defaultRoles: []
   email:
-    enabled: "false"
+    enabled: "true"
     defaultRoles: []
   mobile:
-    enabled: "false"
+    enabled: "true"
     defaultRoles: []
   mobile-password:
     enabled: "false"
@@ -52,11 +52,11 @@ session:
 # Configuration related to the email provider
 email:
   # email address of the sender for verification emails
-  verifyEmailFrom: getstarteduser@hasura.io
+  verifyEmailFrom: sheetsWelcome@hasura.io
   # Name of the sender for verification emails
   verifEmailFromName: admin
   # Subject for verification emails
-  verifyEmailSubject: MyAwesomeApp - Verify your account
+  verifyEmailSubject: Sheets - Verify your account
   # Template for verification emails. HTML can be used in the template. The
   # template is a Jinja template. Leave the "{{token}}" as it is. It will be
   # used by the auth service to inject the actual token when sending the email.
@@ -68,11 +68,11 @@ email:
   verifyTokenExpires: "7"
 
   # email address of the sender for forgot password emails
-  forgotPassEmailFrom: getstarteduser@hasura.io
+  forgotPassEmailFrom: sheetsFgtUsr@hasura.io
   # Name of the sender for forgot password emails
   forgotPassEmailFromName: admin
   # Subject for forgot password emails
-  forgotPassEmailSubject: MyAwesomeApp - Reset password request
+  forgotPassEmailSubject: Sheets - Reset password request
   # Template for forgot password emails. HTML can be used in the template. The
   # template is a Jinja template. Leave the "{{token}}" as it is. It will be
   # used by the auth service to inject the actual token when sending the email.
