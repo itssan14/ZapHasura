@@ -5,7 +5,7 @@ import { trySignup, tryLogin, profile} from '../hasuraApi';
 //import ArticleList from './ArticleList';
 import Notify from './Notify';
 
-const clusterName = "disentanglement49";
+const clusterName = "chowder46";
 
 const loginUrl = "https://auth." + clusterName + ".hasura-app.io/v1/login";
 
