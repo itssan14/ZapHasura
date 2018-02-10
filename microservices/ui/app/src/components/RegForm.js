@@ -42,17 +42,17 @@ export default class RegFrom extends React.Component {
 			}
 		}
 		requestOptions.body = JSON.stringify(body)
-		// AJAX REQUEST TO MICROSERVICE TO INSERT DATA
+		/**
+		 *  AJAX REQUEST TO MICROSERVICE TO INSERT DATA
+		 */
 		Fetch(url, requestOptions)
-			.then(function(response) {
-				return response.json()
-			})
-			.then(function(result) {
-				console.log(result)
+			.then(response => response.json())
+			.then(result => {
+				console.dir(result)
 				this.setState({ open: true })
 			})
-			.catch(function(error) {
-				console.log('Request Failed:' + error)
+			.catch(error => {
+				console.error(`Request failed : ${error}`)
 			})
 	}
 
@@ -66,15 +66,13 @@ export default class RegFrom extends React.Component {
 				gender: event.target.gender.value,
 				email: event.target.email.value
 			})
-			.then(data => {
-				data.json()
-			})
-			.then(function(result) {
-				console.log(result)
+			.then(data => data.json())
+			.then(result => {
+				console.dir(result)
 				this.setState({ open: true })
 			})
-			.catch(function(error) {
-				console.log('Request Failed:' + error)
+			.catch(error => {
+				console.error(`Request failed : ${error}`)
 			})
 	}
 
@@ -189,7 +187,7 @@ export default class RegFrom extends React.Component {
 									<TextField
 										select
 										name="age"
-										label="Select Age"
+										label="Select AgeGroup"
 										value={this.state.age}
 										onChange={this.handleChange}
 										helperText="Please select your age group"
@@ -255,7 +253,10 @@ export default class RegFrom extends React.Component {
 					anchorPosition={{ top: 200, left: 400 }}
 				>
 					<Typography style={{ padding: '20px 20px' }}>
-						Registered Successfully.
+						Submission successfully made to at URL :
+						<a href="https://docs.google.com/spreadsheets/d/1Ow5y0gxQO8Q8N73QNQ4CP0A5UBPNeY8Cb1uXKghwCj8/edit?usp=drivesdk">
+							Google Sheet(View Only.)
+						</a>
 					</Typography>
 				</Popover>
 				<Popover
