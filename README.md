@@ -42,11 +42,6 @@ We have implemented a project wherein it triggers a Zapier Zap. The aim is to cr
 
 ![mail](https://github.com/itssan14/ZapHasura/blob/master/readme-assets/mail.png)
 
-## Organization of this Repository
-
-* README-ReactNative.md : Describes implemention of the mobile app
-* README-ReactJS.md : Describes implemention of the web app
-
 ## Support
 
 If you happen to stuck anywhere, feel free to raise an issue here.
