@@ -43,7 +43,7 @@ export default class RegFrom extends React.Component {
 		}
 		requestOptions.body = JSON.stringify(body)
 		/**
-		 *  AJAX REQUEST TO MICROSERVICE TO INSERT DATA
+		 *  Ajax request to microservice to store data
 		 */
 		Fetch(url, requestOptions)
 			.then(response => response.json())
@@ -57,6 +57,7 @@ export default class RegFrom extends React.Component {
 	}
 
 	webHook = event => {
+		// Send data to backend '/hook' url to store in sheets.
 		axios
 			.post('https://api.chowder46.hasura-app.io/hook', {
 				name: event.target.name.value,
