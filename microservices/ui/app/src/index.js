@@ -5,7 +5,15 @@ import registerServiceWorker from './registerServiceWorker'
 import 'normalize-css'
 // Components
 import NotFound from './components/NotFound'
-import App from './App'
+import RegForm from './components/RegForm'
+import Navbar from './components/Navbar'
+
+const App = () => (
+	<div>
+		<Navbar />
+		<RegForm />
+	</div>
+)
 
 const Router = () => (
 	<BrowserRouter>

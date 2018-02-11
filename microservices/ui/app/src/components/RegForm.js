@@ -9,7 +9,7 @@ import Popover from 'material-ui/Popover'
 import Fetch from 'isomorphic-fetch'
 import axios from 'axios'
 
-export default class RegFrom extends React.Component {
+export default class RegForm extends React.Component {
 	state = {
 		open: false,
 		errOpen: false,
