@@ -9,7 +9,7 @@ We have implemented a project wherein it triggers a Zapier Zap. The aim is to cr
   * [React-Native](https://github.com/itssan14/ZapHasura/blob/master/README-ReactNative.md) _(for mobile app)_
 * **Backend**
 
-  * NodeJS-Express
+  * [NodeJS-Express](https://github.com/itssan14/ZapHasura/blob/master/microservices/api/src/README.md)
 
 ## Functionalities
 
