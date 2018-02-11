@@ -10,7 +10,7 @@ The server side framework that we would be using here is ExpressJS(or Express). 
 ## Pre-requisites
 * [X] **NodeJS v8.9.3 LTS** :
    - Download [here](https://nodejs.org/en/download/)
-   - [X] Includes **npm v5.5.1**
+   - [X] Includes **npm v5.5.1**
 * [X] **Hasura CLI**   
    - Find the Installation Guide [here](https://docs.hasura.io/0.15/manual/install-hasura-cli.html)
 * [X] **[Git](https://git-scm.com)**
