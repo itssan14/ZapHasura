@@ -6,7 +6,7 @@ import MenuItem from 'material-ui/Menu/MenuItem'
 import Typography from 'material-ui/Typography'
 import AddIcon from 'material-ui-icons/Add'
 import Popover from 'material-ui/Popover'
-import Fetch from 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch'
 import axios from 'axios'
 
 export default class RegForm extends React.Component {
@@ -45,7 +45,7 @@ export default class RegForm extends React.Component {
 		/**
 		 *  Ajax request to microservice to store data
 		 */
-		Fetch(url, requestOptions)
+		fetch(url, requestOptions)
 			.then(response => response.json())
 			.then(result => {
 				console.dir(result)
