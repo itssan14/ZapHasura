@@ -162,7 +162,7 @@ notify:
     corsPolicy: allow_all
 ui:
   /:
-    corsPolicy: null
+    corsPolicy: allow_all
     enableAuth: true
     enableCORS: true
     enableWebsockets: true
@@ -178,7 +178,7 @@ ui:
       noSessionRedirectUrl: https://auth.{{ cluster.name }}.hasura-app.io/ui/
 api:
   /:
-    corsPolicy: null
+    corsPolicy: allow_all
     enableAuth: true
     enableCORS: true
     enableWebsockets: true
