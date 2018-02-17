@@ -22,7 +22,7 @@ app.get('/',(req,res) => res.send('T34 - Zapier Zap'));
 
 app.post('/hook', (req,res) => {
 
-		var urljs = "https://hooks.zapier.com/hooks/catch/2931424/ztu8sp/";
+		var urljs = "https://hooks.zapier.com/hooks/catch/2969632/zkp246/";
 
 		var requestOptions = {
 		    "method": "POST",

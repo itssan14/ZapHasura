@@ -48,7 +48,7 @@ export default class AuthScreen extends React.Component {
 
   handleSignupPressed = async () => {
      
-    fetch('https://hooks.zapier.com/hooks/catch/2931424/z67mpy/', {
+    fetch('https://hooks.zapier.com/hooks/catch/2969632/zk0gte/', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
