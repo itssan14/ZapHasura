@@ -367,7 +367,7 @@ let body = {  "type" : "insert",  "args" : {      "table"     : "user
  ![mail.png](https://filestore.hasura.io/v1/file/85f3b616-606d-4c04-a290-370849cf980d)
 
 
-## Support
+# Support
 
 If you happen to stuck anywhere, feel free to raise an issue [here](https://github.com/itssan14/ZapHasura).
 
