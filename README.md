@@ -372,3 +372,4 @@ let body = {  "type" : "insert",  "args" : {      "table"     : "user
 If you happen to stuck anywhere, feel free to raise an issue [here](https://github.com/itssan14/ZapHasura).
 
 # Contributors
+[Sanjay](https://github.com/itssan14) | [Priyam](https://github.com/priyamy) | [RaziyaSultana](https://github.com/RaziyaSultana)
