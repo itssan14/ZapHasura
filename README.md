@@ -151,7 +151,7 @@ After successfully installing all the prescribed softwares and having completed 
 **Step 1: Type the following commands on the CLI** *(Git Bash for windows)*
    1. `ZapHasura(master)$  hasura microservice open api`
     - http://api.(cluster-name).hasura-app.io/ gets opened in browser
-    - You can see **T34 - Zapier Zap** text displayed.
+    - You can see **Hello World** text displayed.
 
 **Step 2: To test locally**
    
